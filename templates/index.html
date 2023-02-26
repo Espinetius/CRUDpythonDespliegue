@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="title">{% block title %} Asignaturas {% endblock %}</h1>
+<div class="content">
+    {% for asignaturas in asignatura %}
+    <div class="asignatura">
+        
+        <p><b>#{{ asignaturas.id }}</b></p>
+        <b>
+            <p class="name">
+                <a href="{{ url_for('asignaturas', asignaturas_id=asignaturas.id)}}">
+                    {{ asignaturas.asignatura }} -- {{ asignaturas.profesor }}
+                </a>
+            </p>
+        </b>
+        <img src="{{asignaturas.img}}"/><br>
+        <a href="{{ url_for('edit', asignaturas_id=asignaturas.id) }}">Edit</a>
+
+        <hr>
+        <form method="POST"
+                action="{{ url_for('delete', asignaturas_id=asignaturas.id) }}">
+            <input type="submit" value="Delete asignatura"
+                onclick="return confirm('Are you sure you want to delete this entry?')">
+        </form>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

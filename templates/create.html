@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="width: 100%">{% block title %}Añadir nueva Asignatura{% endblock %}</h1>
+<form method="post">
+    <p>
+        <label for="asignatura">Nueva Asignatura</label>
+        <input type="text" name="asignatura" placeholder="Nueva Asignatura">
+        </input>
+    </p>
+
+    <p>
+        <label for="img">Imagen de la asignatura</label>
+        <input type="file" name="img">
+        </input> --Introduce aqui la url de tu imagen
+    </p>
+
+    <p>
+        <label for="nomProfesor">Profesor</label>
+        <input type="text" name="nomProfesor" placeholder="Nombre del profesor">
+        </input>
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+{% endblock %}
